@@ -1,0 +1,15 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorTheme": "Ayu Mirage",
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.tabCompletion": "on",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "workbench.iconTheme": "ayu",
+    "python.pythonPath": "/Library/Developer/CommandLineTools/usr/bin/python3"
+}

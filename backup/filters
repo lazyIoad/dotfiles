@@ -1,0 +1,9 @@
+e:.*/node_modules/.*$
+e:\.DS_Store$
+e:(?i).*cache.*
+e:\.sqlite-.*$
+i:Desktop/.*$
+i:Documents/.*$
+i:Pictures/.*$
+i:workspace/.*$
+e:.*
