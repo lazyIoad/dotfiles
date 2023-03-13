@@ -18,7 +18,7 @@
 
     homeConfigurations = {
       "lazyload" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-darwin";
+        pkgs = nixpkgs.legacyPackages.x86_64-darwin;
         modules = [ (import ./hosts/lazyload.nix  "/Users/areeb") ];
       };
     };

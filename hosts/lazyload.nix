@@ -116,7 +116,7 @@ homeDirectory:
 
   xdg.configFile = {
     nvim = {
-      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/workspace/dotfiles/profiles/nvim";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/workspace/dotfiles/nvim";
     };
   };
 }
