@@ -14,4 +14,5 @@ keep-derivations = true
 keep-outputs = true
 EOF
 
-echo 'Next: home-manager switch --flake .'
+echo 'On first run, you may need to use "nix run . switch -- --flake .#{USER}"'
+echo 'Next: home-manager switch --flake .#{USER}'
