@@ -111,6 +111,9 @@ homeDirectory:
     starship = {
       enable = true;
       enableFishIntegration = true;
+      settings = {
+        package.disabled = true;
+      };
     };
 
     zoxide = {
