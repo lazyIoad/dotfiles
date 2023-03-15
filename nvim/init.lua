@@ -3,6 +3,24 @@
 --]]
 local keymap = vim.api.nvim_set_keymap
 local fn = vim.fn
+local opt = vim.opt
+
+
+--[[
+-- Part 0.5: BOOTSTRAP LAZY.NVIM
+--]]
+local lazypath = fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+opt.rtp:prepend(lazypath)
 
 
 --[[
@@ -51,10 +69,10 @@ local options = {
 }
 
 -- Don't show completion messages
-vim.opt.shortmess:append "c"
+opt.shortmess:append "c"
 
 for k, v in pairs(options) do
-  vim.opt[k] = v
+  opt[k] = v
 end
 
 
@@ -101,118 +119,111 @@ keymap("v", "<A-k>", ":m .-2<CR>==", keymap_opts)
 -- Preserve pasted text in register
 keymap("v", "p", '"_dP', keymap_opts)
 
--- Nvim-tree
-keymap("n", "<Leader>t", ":NvimTreeToggle<CR>", keymap_opts)
-
--- Telescope
-keymap("n", "<Leader>ff", ":Telescope find_files<CR>", keymap_opts)
-keymap("n", "<Leader>fg", ":Telescope live_grep<CR>", keymap_opts)
-keymap("n", "<Leader>fb", ":Telescope buffers<CR>", keymap_opts)
-keymap("n", "<Leader>fh", ":Telescope help_tags<CR>", keymap_opts)
-
 
 --[[
 -- Part 3: PLUGINS
 --]]
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
-  vim.cmd [[packadd packer.nvim]]
-  return
-end
-
-local packer = require("packer")
-
--- Plugins
-packer.startup(function(use)
+require("lazy").setup({
   -- foundation
-  use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
-  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
-  use {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end
-  }
+  "nvim-lua/plenary.nvim",
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "numToStr/Comment.nvim", config = true },
 
   -- cmp & co
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-cmdline"
-  use "saadparwaiz1/cmp_luasnip"
-  use "hrsh7th/cmp-nvim-lsp"
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-cmdline",
+  "saadparwaiz1/cmp_luasnip",
+  "hrsh7th/cmp-nvim-lsp",
 
   -- snippets
-  use "L3MON4D3/LuaSnip"
+  "L3MON4D3/LuaSnip",
 
   -- lsp
-  use "neovim/nvim-lspconfig"
+  "neovim/nvim-lspconfig",
 
   -- tree
-  use "kyazdani42/nvim-tree.lua"
+  {
+    "kyazdani42/nvim-tree.lua",
+    keys = {
+      {"<Leader>t", ":NvimTreeToggle<CR>", keymap_opts }
+    },
+    opts = {
+      disable_netrw = true,
+      actions = {
+        open_file = {
+          resize_window = true
+        }
+      }
+    }
+  },
 
   -- rust
-  use "simrat39/rust-tools.nvim"
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    opts = {
+      server = {
+        on_attach = on_attach,
+        flags = lsp_flags,
+      }
+    }
+  },
 
   -- telescope
-  use "nvim-telescope/telescope.nvim"
-  use {"nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<Leader>ff", ":Telescope find_files<CR>", keymap_opts},
+      { "<Leader>fg", ":Telescope live_grep<CR>", keymap_opts },
+      { "<Leader>fb", ":Telescope buffers<CR>", keymap_opts },
+      { "<Leader>fh", ":Telescope help_tags<CR>", keymap_opts },
+    },
+    dependencies = {
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    }
+  },
 
   -- colorscheme
-  -- use "rebelot/kanagawa.nvim"
-  use({
-    "rose-pine/neovim",
-    as = "rose-pine",
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
     config = function()
-      require("rose-pine").setup()
-    end
-})
+      vim.cmd([[colorscheme tokyonight-night]])
+    end,
+  },
 
   -- gitsigns
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end
-  }
+  { "lewis6991/gitsigns.nvim", config = true },
 
   -- true-zen
-  use {
-    "Pocco81/true-zen.nvim",
-    config = function()
-      require("true-zen").setup()
-    end
-  }
+  { "Pocco81/true-zen.nvim", config = true },
 
   -- surround
-  use "tpope/vim-surround"
+  "tpope/vim-surround",
 
   -- git
-  use "tpope/vim-fugitive"
+  "tpope/vim-fugitive",
 
   -- hopping
-  use {
+  {
     "phaazon/hop.nvim",
     branch = "v2",
-    config = function()
-      require("hop").setup()
-    end
+    config = true
   }
-
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
-
--- vim.cmd [[colorscheme kanagawa]]
-vim.cmd [[colorscheme rose-pine-moon]]
+})
 
 
 --[[
 -- Part 4: COMPLETIONS
 --]]
-local cmp = require("cmp")
-local luasnip = require("luasnip")
+local cmp_installed, cmp = pcall(require, "cmp")
+local luasnip_installed, luasnip = pcall(require, "luasnip")
+
+if not cmp_installed or not luasnip_installed then
+  return
+end
+
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -285,7 +296,10 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-local lsp = require("lspconfig")
+local lsp_installed, lsp = pcall(require, "lspconfig")
+if not lsp_installed then
+  return
+end
 
 vim.keymap.set('n', '<Leader>e', vim.diagnostic.open_float, keymap_opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, keymap_opts)
@@ -318,29 +332,9 @@ for _, server in ipairs(servers) do
   }
 end
 
-require("rust-tools").setup({
-  server = {
-    on_attach = on_attach,
-    flags = lsp_flags,
-  }
-})
-
 
 --[[
--- Part 6: NVIM-TREE
---]]
-require("nvim-tree").setup {
-  disable_netrw = true,
-  actions = {
-    open_file = {
-      resize_window = true
-    }
-  }
-}
-
-
---[[
--- Part 7: TREE-SITTER
+-- Part 6: TREE-SITTER
 --]]
 -- Use treesitter for folding
 vim.opt.foldmethod = "expr"
@@ -348,7 +342,12 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 vim.opt.foldlevel = 20
 
-require("nvim-treesitter.configs").setup {
+local treesitter_configs_installed, treesitter_configs = pcall(require, "nvim-treesitter.configs")
+if not treesitter_configs_installed then
+  return
+end
+
+treesitter_configs.setup {
   ensure_installed = "all",
   highlight = { enable = true },
   indent = { enable = false },
