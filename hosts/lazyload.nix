@@ -11,9 +11,9 @@ homeDirectory:
       fd
       gnumake
       inetutils
+      lazygit
       neovim
       ripgrep
-      rust-analyzer
       tree-sitter
       wget
     ];
@@ -30,11 +30,6 @@ homeDirectory:
       config = {
         theme = "base16";
       };
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
     };
 
     exa = {
