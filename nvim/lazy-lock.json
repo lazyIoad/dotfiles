@@ -36,6 +36,8 @@
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "729d83ecb990dc2b30272833c213cc6d49ed5214" },
   "nvim-web-devicons": { "branch": "master", "commit": "585dbc29315ca60be67d18ae6175771c3fb6791e" },
   "plenary.nvim": { "branch": "master", "commit": "253d34830709d690f013daf2853a9d21ad7accab" },
+  "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "580b6c48651cabb63455e97d7e131ed557b8c7e2" },
   "telescope.nvim": { "branch": "master", "commit": "a3f17d3baf70df58b9d3544ea30abe52a7a832c2" },
   "tokyonight.nvim": { "branch": "main", "commit": "467d889ba82a74e26821c812aa8e70d7dff04c6c" },
   "vim-illuminate": { "branch": "master", "commit": "49062ab1dd8fec91833a69f0a1344223dd59d643" },
