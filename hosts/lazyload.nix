@@ -45,6 +45,9 @@ homeDirectory:
           body = "mkdir -p $argv[1]; and cd $argv[1]";
         };
       };
+      interactiveShellInit = ''
+        fish_add_path ~/.cargo/bin
+      '';
       plugins = [
         {
           name = "fzf";
