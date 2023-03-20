@@ -36,5 +36,5 @@ chsh -s $HOME/.nix-profile/bin/fish
 ```
 
 ## TODO:
-- [ ] Packer -> lazy
+- [x] Packer -> lazy
 - [ ] Refactor nix stuff
