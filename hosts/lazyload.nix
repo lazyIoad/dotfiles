@@ -9,6 +9,7 @@ homeDirectory:
       colima
       docker
       fd
+      flyctl
       gnumake
       inetutils
       lazygit
