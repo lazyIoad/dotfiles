@@ -13,6 +13,7 @@ homeDirectory:
       gnumake
       inetutils
       lazygit
+      luajit
       neovim
       ripgrep
       tree-sitter
