@@ -6,15 +6,18 @@ homeDirectory:
     username = "areeb";
     homeDirectory = homeDirectory;
     packages = with pkgs; [
+      bacon
       colima
       docker
       fd
       flyctl
       gnumake
+      helix
       inetutils
       lazygit
       luajit
       neovim
+      nnn
       ripgrep
       tree-sitter
       wget
@@ -123,6 +126,9 @@ homeDirectory:
   };
 
   xdg.configFile = {
+    helix = {
+      source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/workspace/dotfiles/helix";
+    };
     nvim = {
       source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/Documents/workspace/dotfiles/nvim";
     };
