@@ -1,0 +1,138 @@
+# Orca
+# Author: lazyload
+
+# Adaptation of the Orca theme from https://github.com/hundredrabbits/Themes
+# Original author: hundredrabbits
+# All credits to the original author.
+
+## User interface
+"ui.background" = { bg = "bg" }
+"ui.background.separator" = { bg = "bg" }
+
+"ui.cursor" = { bg = "f_high", fg = "b_low" }
+# "ui.cursor.primary" = { bg = "b_low", fg = "f_high" }
+"ui.cursor.match" = { fg = "b_inv" }
+
+"ui.linenr" = { fg = "f_low" }
+"ui.linenr.selected" = { fg = "b_inv" }
+
+"ui.statusline" = { fg = "f_high", bg = "b_low" }
+
+"ui.popup" = { fg = "f_high", bg = "b_low" }
+
+"ui.window" = { fg = "b_med" }
+
+"ui.help" = { fg = "f_high", bg = "b_low" }
+
+"ui.text" = "f_high"
+"ui.text.focus" = { fg = "f_high", bg = "b_low", modifiers = ["bold"] }
+
+# "ui.virtual" = "sumiInk4"
+"ui.virtual.ruler" = { bg = "b_inv" }
+"ui.virtual.indent-guide" = { fg = "b_low" }
+"ui.virtual.inlay-hint" = { fg = "f_med" }
+
+"ui.menu" = { fg = "f_high", bg = "b_low" }
+"ui.menu.selected" = { fg = "f_high", bg = "b_inv" }
+"ui.menu.scroll" = { fg = "b_inv", bg = "b_low" }
+
+"ui.selection" = { bg = "b_low" }
+"ui.selection.primary" = { bg = "b_low" }
+
+"ui.highlight" = { fg = "f_high", bg = "b_low" }
+
+error = "f_inv"
+warning = "b_inv"
+info = "b_med"
+hint = "b_high"
+
+"diagnostic.error" = { underline = { color = "f_inv", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "b_inv", style = "curl" } }
+"diagnostic.info" = { underline = { color = "b_med", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "b_high", style = "curl" } }
+
+## Git gutter
+"diff.plus" = "b_med"
+"diff.minus" = "b_low"
+"diff.delta" = "b_high"
+
+## Syntax highlighting
+"type" = "b_med"
+"constructor" = "b_inv"
+"string" = "f_med"
+"comment" = "f_low"
+"variable.builtin" = "b_inv"
+"keyword" = "b_med"
+"keyword.storage.type" = "b_high"
+"keyword.storage.modifier" = "f_inv"
+"keyword.control" = "f_inv"
+"function" = "b_inv"
+"function.macro" = "f_inv"
+
+## Markup modifiers
+# "markup.heading.marker" = "springViolet2"
+# "markup.heading.1" = { fg = "surimiOrange", modifiers = ["bold"] }
+# "markup.heading.2" = { fg = "carpYellow", modifiers = ["bold"] }
+# "markup.heading.3" = { fg = "waveAqua2", modifiers = ["bold"] }
+# "markup.heading.4" = { fg = "lightBlue", modifiers = ["bold"] }
+# "markup.heading.5" = { fg = "oniViolet", modifiers = ["bold"] }
+# "markup.heading.6" = { fg = "springViolet1", modifiers = ["bold"] }
+# "markup.list.numbered" = "sakuraPink"
+# "markup.list.unnumbered" = "waveRed"
+# "markup.bold" = { modifiers = ["bold"] }
+# "markup.italic" = { modifiers = ["italic"] }
+# "markup.strikethrough" = { modifiers = ["crossed_out"] }
+# "markup.link.text" = "crystalBlue"
+# "markup.link.url" = { fg = "springBlue", underline.style = "line" }
+# "markup.link.label" = "surimiOrange"
+# "markup.quote" = "springViolet1"
+# "markup.raw" = "springGreen"
+
+[palette]
+bg = "#000000"
+f_high = "#ffffff"
+f_med = "#777777"
+f_low = "#444444"
+f_inv = "#ff78a9"
+b_high = "#dddddd"
+b_med = "#72dec2"
+b_low = "#222222"
+b_inv = "#ffb545"
+seaFoam       = "#C7CCD1" # custom lighter foreground
+fujiWhite     = "#DCD7BA" # default foreground
+oldWhite      = "#C8C093" # dark foreground, e.g. statuslines
+sumiInk0      = "#16161D" # dark background, e.g. statuslines, floating windows
+sumiInk1      = "#1F1F28" # default background
+sumiInk2      = "#2A2A37" # lighter background, e.g. colorcolumns, folds
+sumiInk3      = "#363646" # lighter background, e.g. cursorline
+sumiInk4      = "#54546D" # darker foreground, e.g. linenumbers, fold column
+waveBlue1     = "#223249" # popup background, visual selection background
+waveBlue2     = "#2D4F67" # popup selection background, search background
+winterGreen   = "#2B3328" # diff add background
+winterYellow  = "#49443C" # diff change background
+winterRed     = "#43242B" # diff deleted background
+winterBlue    = "#252535" # diff line background
+autumnGreen   = "#76946A" # git add
+autumnRed     = "#C34043" # git delete
+autumnYellow  = "#DCA561" # git change
+samuraiRed    = "#E82424" # diagnostic error
+roninYellow   = "#FF9E3B" # diagnostic warning
+waveAqua1     = "#6A9589" # diagnostic info
+dragonBlue    = "#658594" # diagnostic hint
+fujiGray      = "#727169" # comments
+springViolet1 = "#938AA9" # light foreground
+oniViolet     = "#957FB8" # statements and keywords
+crystalBlue   = "#7E9CD8" # functions and titles
+springViolet2 = "#9CABCA" # brackets and punctuation
+springBlue    = "#7FB4CA" # specials and builtins
+lightBlue     = "#A3D4D5" # not used!
+waveAqua2     = "#7AA89F" # types
+springGreen   = "#98BB6C" # strings
+boatYellow1   = "#938056" # not used
+boatYellow2   = "#C0A36E" # operators, regex
+carpYellow    = "#E6C384" # identifiers
+sakuraPink    = "#D27E99" # numbers
+waveRed       = "#E46876" # standout specials 1, e.g. builtin variables
+peachRed      = "#FF5D62" # standout specials 2, e.g. exception handling, returns
+surimiOrange  = "#FFA066" # constants, imports, booleans
+katanaGray    = "#717C7C" # deprecated

@@ -1,7 +1,16 @@
-theme = "Kanagawa"
+# theme = "Kanagawa"
+theme = 'orca'
 
 [editor.cursor-shape]
 insert = "bar"
 
 [editor.file-picker]
 hidden = false
+
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[editor.lsp]
+"display-inlay-hints" = true
