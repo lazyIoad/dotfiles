@@ -1,5 +1,8 @@
 # theme = "Kanagawa"
-theme = 'orca'
+theme = 'rabbits'
+
+[editor]
+rulers = [80]
 
 [editor.cursor-shape]
 insert = "bar"

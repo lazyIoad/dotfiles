@@ -1,0 +1,98 @@
+# rabbits
+# Author: lazyload
+
+# Adaptation of the Orca theme from https://github.com/hundredrabbits/Themes,
+# with additional colors from the various rabbits.
+# Original author: hundredrabbits (100r.co)
+# All credits to the original authors.
+
+## UI
+"ui.background" = { bg = "bg" }
+"ui.background.separator" = { bg = "bg" }
+
+"ui.cursor" = { bg = "f_high", fg = "bg" }
+"ui.cursor.match" = { fg = "b_inv" }
+
+"ui.linenr" = { fg = "f_med" }
+"ui.linenr.selected" = { fg = "b_inv" }
+
+"ui.statusline" = { fg = "f_high", bg = "b_low" }
+
+"ui.popup" = { fg = "f_high", bg = "b_low" }
+
+"ui.window" = { fg = "b_med" }
+
+"ui.help" = { fg = "f_high", bg = "b_low" }
+
+"ui.text" = "f_high"
+"ui.text.focus" = { fg = "b_med" }
+
+"ui.virtual.ruler" = { bg = "b_low" }
+"ui.virtual.indent-guide" = { fg = "b_low" }
+"ui.virtual.inlay-hint" = { fg = "f_med" }
+
+"ui.menu" = { fg = "f_high", bg = "b_low" }
+"ui.menu.selected" = { fg = "b_med" }
+"ui.menu.scroll" = { fg = "b_inv", bg = "b_low" }
+
+"ui.selection" = { bg = "b_low" }
+
+"ui.highlight" = { fg = "f_high", bg = "b_low" }
+
+error = "f_low"
+warning = "b_inv"
+info = "b_med"
+hint = "f_inv"
+
+"diagnostic.error" = { underline = { color = "f_low", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "b_inv", style = "curl" } }
+"diagnostic.info" = { underline = { color = "b_med", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "f_inv", style = "curl" } }
+
+## Git gutter
+"diff.plus" = "b_med"
+"diff.minus" = "f_low"
+"diff.delta" = "f_inv"
+
+## Syntax highlighting
+"attribute" = "f_high"
+"type" = "b_med"
+"type.enum.variant" = "f_high"
+"constructor" = "b_inv"
+"string" = "b_high"
+"comment" = "b_high"
+"keyword" = "b_med"
+"keyword.function" = "f_high"
+"keyword.storage.type" = "b_high"
+"keyword.storage.modifier" = "f_inv"
+"keyword.control" = "f_inv"
+"function" = "b_inv"
+"function.macro" = "f_inv"
+
+## Markup modifiers
+"markup.heading.marker" = "b_med"
+"markup.heading" = { fg = "b_med", modifiers = ["bold"] }
+"markup.list" = "b_med"
+"markup.list.checked" = "b_high"
+"markup.list.unchecked" = "b_inv"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.text" = "b_med"
+"markup.link.url" = { fg = "b_high", underline.style = "line" }
+"markup.link.label" = "f_inv"
+"markup.quote" = "b_high"
+"markup.raw" = "b_high"
+
+[palette]
+bg = "#000000"
+
+f_high = "#FFFFFF"
+f_med = "#777777"
+f_low = "#DD7373"
+f_inv = "#9473D7"
+
+b_high = "#B9CAC8"
+b_med = "#72dec2"
+b_low = "#222222"
+b_inv = "#FFB545"
