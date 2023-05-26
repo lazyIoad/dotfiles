@@ -6,7 +6,6 @@ homeDirectory:
     username = "areeb";
     homeDirectory = homeDirectory;
     packages = with pkgs; [
-      bacon
       colima
       docker
       fd
@@ -37,6 +36,9 @@ homeDirectory:
       };
     };
 
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
+
     exa = {
       enable = true;
       enableAliases = true;
@@ -50,9 +52,6 @@ homeDirectory:
           body = "mkdir -p $argv[1]; and cd $argv[1]";
         };
       };
-      interactiveShellInit = ''
-        fish_add_path ~/.cargo/bin
-      '';
       plugins = [
         {
           name = "fzf";
