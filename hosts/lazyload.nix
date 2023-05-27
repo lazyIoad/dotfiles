@@ -2,16 +2,17 @@
 
 let
   workspace = "${config.home.homeDirectory}/Documents/workspace";
+  extraPackages = with pkgs; [
+    colima
+    docker
+    flyctl
+  ];
 in
 {
   home = {
     username = "areeb";
     homeDirectory = "/Users/areeb";
-    packages = (import ../home/packages.nix pkgs).core ++ [
-      colima
-      docker
-      flyctl
-    ];
+    packages = (import ../home/packages.nix pkgs) ++ extraPackages;
     sessionVariables = {
       EDITOR = "nvim";
       WORKSPACE = workspace;
@@ -21,8 +22,6 @@ in
 
   programs = (import ../home/programs.nix {
     inherit pkgs;
-
-    extraFishAbbrs = (import ../home/lnkd.nix).shellAbbrs
   }) // {
     git = {
       enable = true;
