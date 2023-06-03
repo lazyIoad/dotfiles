@@ -1,6 +1,7 @@
 { pkgs, ... }:
 
 with pkgs; [
+  cachix
   fd
   lazygit
   helix
