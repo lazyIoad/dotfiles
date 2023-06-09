@@ -32,6 +32,7 @@
   shellAbbrs = {
     e = "nvim";
     ga = "git add";
+    gb = "git branch";
     gc- = "git checkout -";
     gcb = "git checkout -b";
     gcm = "git checkout master";
