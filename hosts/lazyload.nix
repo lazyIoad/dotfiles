@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, devenv, ... }:
 
 let
   workspace = "${config.home.homeDirectory}/Documents/workspace";
@@ -6,7 +6,7 @@ let
     colima
     docker
     flyctl
-  ];
+  ] ++ [ devenv ];
 in
 {
   home = {
@@ -17,7 +17,7 @@ in
       EDITOR = "nvim";
       WORKSPACE = workspace;
     };
-    stateVersion = "22.11";
+    stateVersion = "23.05";
   };
 
   programs = (import ../home/programs.nix {
@@ -37,7 +37,7 @@ in
         ".DS_Store"
       ];
       userName = "lazyload";
-      userEmail = "git@arb.computer";
+      userEmail = "git@lazyloading.net";
     };
   };
 
