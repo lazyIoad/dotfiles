@@ -1,7 +1,8 @@
-{ pkgs, extraAbbrs ? { }, ... }:
+{ pkgs, extraAbbrs ? { }, extraShellInit ? "", ... }:
 
 {
   enable = true;
+  interactiveShellInit = extraShellInit;
   functions = {
     mkcd = {
       description = "Make a directory and enter it";

@@ -1,4 +1,4 @@
-{ pkgs, extraFishAbbrs ? { }, ... }:
+{ pkgs, extraFishAbbrs ? { }, extraFishInit ? "", ... }:
 
 {
   bat = {
@@ -18,7 +18,7 @@
     enableAliases = true;
   };
 
-  fish = import ./fish.nix { inherit pkgs; extraAbbrs = extraFishAbbrs; };
+  fish = import ./fish.nix { inherit pkgs; extraAbbrs = extraFishAbbrs; extraShellInit = extraFishInit; };
 
   fzf = {
     enable = true;

@@ -3,8 +3,6 @@
 let
   workspace = "${config.home.homeDirectory}/Documents/workspace";
   extraPackages = with pkgs; [
-    colima
-    docker
     flyctl
   ] ++ [ devenv ];
 in
@@ -22,6 +20,9 @@ in
 
   programs = (import ../home/programs.nix {
     inherit pkgs;
+    extraFishInit = ''
+      fish_add_path -U $HOME/.docker/bin
+    '';
   }) // {
     git = {
       enable = true;
