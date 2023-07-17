@@ -22,6 +22,11 @@
           devenv = devenv.packages.x86_64-darwin.devenv;
         };
       };
+
+      "valus" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [ ./hosts/valus.nix ];
+      };
     };
   };
 }
