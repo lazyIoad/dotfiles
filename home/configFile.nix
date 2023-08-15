@@ -7,4 +7,7 @@
   nvim = {
     source = config.lib.file.mkOutOfStoreSymlink "${workspace}/dotfiles/programs/nvim";
   };
+  wezterm = {
+    source = config.lib.file.mkOutOfStoreSymlink "${workspace}/dotfiles/programs/wezterm";
+  };
 }
