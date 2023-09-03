@@ -33,11 +33,13 @@
     e = "nvim";
     ga = "git add";
     gb = "git branch";
+    gc = "git checkout";
     gc- = "git checkout -";
     gcb = "git checkout -b";
     gcm = "git checkout master";
     gcom = "git commit -m ";
     gp = "git pull --rebase";
+    gps = "git push";
     grem = "git rebase master";
     n = "nvim";
     ws = "cd $WORKSPACE";
