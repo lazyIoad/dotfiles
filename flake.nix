@@ -9,15 +9,23 @@
   outputs = inputs@{ nixpkgs, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem
       (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in {
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+
+          devShells = pkgs.mkShell {
+            buildInputs = with pkgs; [
+              nixpkgs-fmt
+              nodePackages.prettier
+              stylua
+            ];
+          };
+
           formatter = pkgs.nixpkgs-fmt;
-          devShells.default =
-            pkgs.mkShell {
-              buildInputs = with pkgs; [
-                nixpkgs-fmt
-                stylua
-              ];
-            };
+        in
+        {
+          inherit formatter;
+          devShells.default = devShells;
         });
 }
