@@ -6,9 +6,24 @@ return {
 	opts = {
 		variant = "auto",
 		dark_variant = "moon",
-		extend_background_behind_borders = true,
 	},
 	init = function()
 		vim.cmd("colorscheme rose-pine")
 	end,
+	keys = {
+		{
+			"<leader>Cl",
+			function()
+				vim.cmd("colorscheme rose-pine-dawn")
+			end,
+			desc = "Switch to light colorscheme",
+		},
+		{
+			"<leader>Cd",
+			function()
+				vim.cmd("colorscheme rose-pine-moon")
+			end,
+			desc = "Switch to dark colorscheme",
+		},
+	},
 }

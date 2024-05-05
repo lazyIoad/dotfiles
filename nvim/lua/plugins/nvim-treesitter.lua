@@ -11,15 +11,6 @@ return {
 			indent = {
 				enable = true,
 			},
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<CR>",
-					scope_incremental = "<CR>",
-					node_incremental = "<TAB>",
-					node_decremental = "<S-TAB>",
-				},
-			},
 			textobjects = {
 				select = {
 					enable = true,
@@ -34,6 +25,7 @@ return {
 							desc = "Select outer part of a parameter",
 						},
 					},
+					include_surrounding_whitespace = true,
 				},
 				move = {
 					enable = true,
@@ -75,6 +67,24 @@ return {
 					},
 				},
 			},
+			textsubjects = {
+				enable = true,
+				prev_selection = ",",
+				keymaps = {
+					["."] = {
+						"textsubjects-smart",
+						desc = "Smart select",
+					},
+					[";"] = {
+						"textsubjects-container-outer",
+						desc = "Select outside containers (classes, functions, etc)",
+					},
+					["i;"] = {
+						"textsubjects-container-inner",
+						desc = "Select inside containers (classes, functions, etc)",
+					},
+				},
+			},
 		},
 		dependencies = {
 			{
@@ -84,6 +94,9 @@ return {
 					vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
 					vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
 				end,
+			},
+			{
+				"RRethy/nvim-treesitter-textsubjects",
 			},
 		},
 		version = false,

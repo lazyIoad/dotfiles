@@ -14,6 +14,7 @@ return {
 			g = { name = "+git" },
 			x = { name = "+trouble" },
 			s = { name = "+swap (tree-sitter)" },
+			C = { name = "+colorscheme" },
 		}, { prefix = "<leader>" })
 	end,
 }

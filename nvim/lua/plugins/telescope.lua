@@ -1,17 +1,16 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	config = function()
-		local actions = require("telescope.actions")
+	opts = function()
 		local trouble = require("trouble.providers.telescope")
 
-		require("telescope").setup({
+		return {
 			defaults = {
 				mappings = {
 					i = { ["<c-t>"] = trouble.open_with_trouble },
 					n = { ["<c-t>"] = trouble.open_with_trouble },
 				},
 			},
-		})
+		}
 	end,
 	keys = {
 		{
@@ -24,7 +23,11 @@ return {
 		{
 			"<leader>fb",
 			function()
-				require("telescope.builtin").buffers()
+				require("telescope.builtin").buffers({
+					-- sort_lastused = true,
+					select_current = true,
+					sort_mru = true,
+				})
 			end,
 			desc = "Find buffer",
 		},
