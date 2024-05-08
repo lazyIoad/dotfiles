@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/nvim-cmp",
+		"L3MON4D3/LuaSnip",
 	},
 	config = function()
 		local lspconfig = require("lspconfig")
@@ -82,6 +83,11 @@ return {
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			},
 			completion = { autocomplete = false },
+			snippet = {
+				expand = function(args)
+					require("luasnip").lsp_expand(args.body)
+				end,
+			},
 		})
 	end,
 }
