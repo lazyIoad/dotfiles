@@ -2,11 +2,18 @@ return {
 	"folke/trouble.nvim",
 	keys = {
 		{
+			"<leader>X",
+			function()
+				require("trouble").close()
+			end,
+			desc = "Close",
+		},
+		{
 			"<leader>xx",
 			function()
 				require("trouble").toggle()
 			end,
-			desc = "Diagnostics",
+			desc = "Open",
 		},
 		{
 			"<leader>xd",
