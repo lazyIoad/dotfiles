@@ -12,6 +12,7 @@ return {
 		local trouble = require("trouble")
 
 		local function lsp_attach(client, bufnr)
+			client.server_capabilities.semanticTokensProvider = nil
 			local function map(mode, lhs, rhs, desc)
 				vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
 			end
@@ -54,9 +55,31 @@ return {
 			lspconfig.gopls.setup({})
 		end
 
-		require("cmp").setup({
+		local cmp = require("cmp")
+		cmp.setup({
 			sources = {
 				{ name = "nvim_lsp" },
+			},
+			mapping = {
+				["<C-y>"] = cmp.mapping.confirm({ select = false }),
+				["<C-e>"] = cmp.mapping.abort(),
+				["<C-p>"] = cmp.mapping(function()
+					if cmp.visible() then
+						cmp.select_prev_item({ behavior = "select" })
+					else
+						cmp.complete()
+					end
+				end),
+				["<C-n>"] = cmp.mapping(function()
+					if cmp.visible() then
+						cmp.select_next_item({ behavior = "select" })
+					else
+						cmp.complete()
+					end
+				end),
+				["<C-u>"] = cmp.mapping.scroll_docs(-4),
+				["<C-d>"] = cmp.mapping.scroll_docs(4),
+				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			},
 			completion = { autocomplete = false },
 		})
