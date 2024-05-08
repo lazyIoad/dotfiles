@@ -22,4 +22,5 @@ return lazy.setup({
 		},
 	},
 	spec = { { import = "plugins" } },
+	checker = { enabled = false },
 })
