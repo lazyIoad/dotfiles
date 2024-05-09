@@ -11,28 +11,28 @@ return {
 		{
 			"<leader>xx",
 			function()
-				require("trouble").toggle()
+				require("trouble").open()
 			end,
 			desc = "Open",
 		},
 		{
 			"<leader>xd",
 			function()
-				require("trouble").toggle("document_diagnostics")
+				require("trouble").open("document_diagnostics")
 			end,
 			desc = "Buffer diagnostics",
 		},
 		{
 			"<leader>xl",
 			function()
-				require("trouble").toggle("loclist")
+				require("trouble").open("loclist")
 			end,
 			desc = "Location list",
 		},
 		{
 			"<leader>xq",
 			function()
-				require("trouble").toggle("quickfix")
+				require("trouble").open("quickfix")
 			end,
 			desc = "Quickfix list",
 		},

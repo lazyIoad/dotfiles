@@ -36,7 +36,7 @@ return {
 			map("n", "<space>D", vim.lsp.buf.type_definition, "Go to type definition")
 			map("n", "<leader>lt", ts.lsp_type_definitions, "(telescope) Open type definitions")
 			map("n", "<leader>lr", function()
-				trouble.toggle("lsp_references")
+				trouble.open("lsp_references")
 			end, "(trouble) Open references")
 			map("n", "<leader>lh", ts.diagnostics, "(telescope) Open diagnostics")
 		end
