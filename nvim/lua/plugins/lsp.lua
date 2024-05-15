@@ -39,11 +39,20 @@ return {
 				trouble.open("lsp_references")
 			end, "(trouble) Open references")
 			map("n", "<leader>lh", ts.diagnostics, "(telescope) Open diagnostics")
+			map("n", "<leader>lk", vim.diagnostic.open_float, "Hover diagnostics")
 		end
 
 		lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {
 			on_attach = lsp_attach,
 			capabilities = capabilities,
+		})
+
+		vim.diagnostic.config({
+			virtual_text = false,
+			signs = true,
+			underline = true,
+			update_in_insert = false,
+			severity_sort = true,
 		})
 
 		local exec = vim.fn.executable
