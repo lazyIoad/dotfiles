@@ -4,9 +4,9 @@ return {
 		{
 			"<leader>X",
 			function()
-				require("trouble").close()
+				require("trouble").toggle()
 			end,
-			desc = "Close",
+			desc = "(trouble) Toggle",
 		},
 		{
 			"<leader>xx",
