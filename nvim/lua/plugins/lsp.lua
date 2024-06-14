@@ -65,6 +65,10 @@ return {
 			lspconfig.gopls.setup({})
 		end
 
+		if exec("starpls") == 1 then
+			lspconfig.starpls.setup({})
+		end
+
 		local cmp = require("cmp")
 		cmp.setup({
 			sources = {
