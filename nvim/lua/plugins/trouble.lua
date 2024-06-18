@@ -37,5 +37,8 @@ return {
 			desc = "Quickfix list",
 		},
 	},
-	opts = {},
+	opts = {
+		auto_jump = true,
+		focus = true,
+	},
 }
