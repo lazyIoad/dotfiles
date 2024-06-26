@@ -38,6 +38,7 @@ return {
 		},
 	},
 	opts = {
+		auto_preview = false,
 		auto_jump = true,
 		focus = true,
 	},
