@@ -41,5 +41,6 @@ return {
 		auto_preview = false,
 		auto_jump = true,
 		focus = true,
+		follow = true,
 	},
 }
