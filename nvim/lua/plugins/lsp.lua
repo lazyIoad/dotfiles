@@ -62,7 +62,10 @@ return {
 		end
 
 		if exec("gopls") == 1 then
-			lspconfig.gopls.setup({})
+			lspconfig.gopls.setup({
+				staticcheck = true,
+				usePlaceholders = true,
+			})
 		end
 
 		if exec("starpls") == 1 then
