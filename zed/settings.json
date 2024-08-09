@@ -1,0 +1,36 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "vim_mode": true,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "ui_font_size": 13,
+  // "ui_font_family": "Berkeley Mono Trial",
+  "ui_font_family": "BlexMono Nerd Font Mono",
+  "buffer_font_size": 13,
+  // "buffer_font_family": "Berkeley Mono Trial",
+  "buffer_font_family": "BlexMono Nerd Font Mono",
+  "current_line_highlight": "gutter",
+  "cursor_blink": false,
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "relative_line_numbers": true,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Rosé Pine"
+  },
+  "vertical_scroll_margin": 0,
+  "wrap_guides": [80, 100]
+}
