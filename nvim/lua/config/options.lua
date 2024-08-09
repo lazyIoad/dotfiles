@@ -1,34 +1,4 @@
--- Disable netrw
-vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
-
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-local opt = vim.opt
-opt.autoindent = true
-opt.clipboard = "unnamedplus"
-opt.completeopt = "menu,menuone,noselect"
-opt.cursorline = false
-opt.formatoptions = "jcroqlnt"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true
-opt.list = true
-opt.mouse = "a"
-opt.number = true
-opt.relativenumber = true
-opt.scrolloff = 4
-opt.shiftround = true
-
-opt.shortmess = ""
-opt.shortmess:append({ C = true, I = true, W = true, c = true })
-opt.sidescrolloff = 8
-opt.signcolumn = "yes"
-opt.smartcase = true
-opt.smartindent = true
-opt.splitbelow = true
-opt.splitright = true
--- opt.tabstop = 2
-opt.termguicolors = true
-opt.wrap = false
-return nil
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+vim.g.lazyvim_picker = "telescope"
