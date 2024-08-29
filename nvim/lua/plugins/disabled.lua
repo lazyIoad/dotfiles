@@ -9,4 +9,9 @@ return {
   { "saecki/crates.nvim", enabled = false },
   { "stevearc/dressing.nvim", enabled = false },
   { "folke/noice.nvim", enabled = false },
+  { "folke/noice.nvim", enabled = false },
+  { "MunifTanjim/nui.nvim", enabled = false },
+  { "folke/todo-comments.nvim", enabled = false },
+  { "nvim-neo-tree/neo-tree.nvim", enabled = false },
+  { "folke/persistence.nvim", enabled = false },
 }
