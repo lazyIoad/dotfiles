@@ -1,0 +1,8 @@
+theme = dark:rose-pine-moon,light:rose-pine-dawn
+font-family = BlexMono Nerd Font Mono
+macos-titlebar-style = tabs
+macos-non-native-fullscreen = true
+keybind = super+shift+apostrophe=new_split:right
+keybind = super+shift+enter=new_split:down
+keybind = super+shift+h=goto_split:previous
+keybind = super+shift+l=goto_split:next
